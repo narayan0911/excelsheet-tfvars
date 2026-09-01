@@ -1,0 +1,15 @@
+﻿resource_type,resource_name,resource_group,location,vnet_name,address_space,subnet_name,address_prefix,vm_name,os,username,password,public_ip_name,nic_name
+azurerm_resource_group,rgvm1,rgvm1,centralindia,,,,,,,,,,
+azurerm_resource_group,rgvm2,rgvm2,southindia,,,,,,,,
+azurerm_resource_group,rgvm3,rgvm3,centralindia,,,,,,,,
+azurerm_resource_group,rgvm4,rgvm4,southindia,,,,,,,,
+azurerm_virtual_network,dlink,rgvm1,centralindia,dlink,10.123.0.0/16,,,,,,,,
+azurerm_virtual_network,elink,rgvm2,southindia,elink,10.124.0.0/16,,,,,,,,
+azurerm_subnet,linux1subnet,rgvm1,,dlink,,linux1subnet,10.123.0.0/24,,,,,,
+azurerm_subnet,linux2subnet,rgvm2,,elink,,linux2subnet,10.124.0.0/24,,,,,,
+azurerm_public_ip,pip1,rgvm1,centralindia,,,,,,,,,pip1,
+azurerm_network_interface,nic1,rgvm1,centralindia,dlink,,linux1subnet,,,,,,,nic1
+azurerm_linux_virtual_machine,linux1,rgvm1,centralindia,dlink,,linux1subnet,,linux1,Linux,adminuser,adminuser@123,pip1,nic1
+azurerm_public_ip,pip2,rgvm2,southindia,,,,,,,,,pip2,
+azurerm_network_interface,nic2,rgvm2,southindia,elink,,linux2subnet,,,,,,,nic2
+azurerm_linux_virtual_machine,linux2,rgvm2,southindia,elink,,linux2subnet,,linux2,Linux,adminuser,adminuser@123,pip2,nic2
